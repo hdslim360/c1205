@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-us" xml:lang="en-us">
+<head>
+        <meta name="keywords" content="moodle, Moodle: Login to the site " />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="https://uno.mrooms3.net/theme/standard/styles.php" />
+<link rel="stylesheet" type="text/css" href="https://uno.mrooms3.net/theme/express/styles.php" />
+
+<!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="https://uno.mrooms3.net/theme/standard/styles_ie7.css" />
+<![endif]-->
+<!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="https://uno.mrooms3.net/theme/standard/styles_ie6.css" />
+<![endif]-->
+<!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="https://uno.mrooms3.net/theme/page/styles_ie7.css" />
+    <script type="text/javascript" charset="utf-8">
+        expressThemeMenuHeight = 30;
+    </script>
+<![endif]-->
+<!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="https://uno.mrooms3.net/theme/page/styles_ie6.css" />
+    <script type="text/javascript" charset="utf-8">
+        expressThemeMenuHeight = 27;
+    </script>
+<![endif]-->
+
+<script type="text/javascript"  src="https://uno.mrooms3.net/lib/yui/yahoo-dom-event/yahoo-dom-event.js"></script>
+<script type="text/javascript"  src="https://uno.mrooms3.net/lib/yui/container/container_core-min.js"></script>
+<script type="text/javascript"  src="https://uno.mrooms3.net/lib/yui/menu/menu-min.js"></script>
+<script type="text/javascript"  src="https://uno.mrooms3.net/lib/yui/yahoo/yahoo-min.js"></script>
+<script type="text/javascript"  src="https://uno.mrooms3.net/lib/yui/dom/dom-min.js"></script>
+<script type="text/javascript"  src="https://uno.mrooms3.net/lib/yui/event/event-min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://uno.mrooms3.net/lib/yui/menu/assets/menu.css" /><script type="text/javascript" src="https://uno.mrooms3.net/theme/page/javascript.js"></script><script type="text/javascript" src="https://uno.mrooms3.net/theme/express/javascript.js"></script><title>Moodle: Login to the site</title>
+	<link rel="shortcut icon" type="image/x-icon" href="https://uno.mrooms3.net/express/design/Moodle1/pix/favicon.ico" />
+<link href="https://uno.mrooms3.net/theme/express/styles_joule-mini.css" type="text/css" rel="stylesheet"><!--[if IE 7]>
+          <link href="https://uno.mrooms3.net/theme/express/styles_ie7.css" type="text/css" rel="stylesheet">
+          <![endif]--><!--[if IE 6]>
+          <link href="https://uno.mrooms3.net/theme/express/styles_ie6.css" type="text/css" rel="stylesheet">
+          <![endif]--><script type="text/javascript" src="https://uno.mrooms3.net/lib/speller/spellChecker.js"></script>
+<!--<style type="text/css">/*<![CDATA[*/ body{behavior:url(https://uno.mrooms3.net/lib/csshover.htc);} /*]]>*/</style>-->
+
+<script type="text/javascript" src="https://uno.mrooms3.net/lib/javascript-static.js"></script>
+<script type="text/javascript" src="https://uno.mrooms3.net/lib/javascript-mod.php"></script>
+<script type="text/javascript" src="https://uno.mrooms3.net/lib/overlib/overlib.js"></script>
+<script type="text/javascript" src="https://uno.mrooms3.net/lib/overlib/overlib_cssstyle.js"></script>
+<script type="text/javascript" src="https://uno.mrooms3.net/lib/cookies.js"></script>
+<script type="text/javascript" src="https://uno.mrooms3.net/lib/ufo.js"></script>
+<script type="text/javascript" src="https://uno.mrooms3.net/lib/dropdown.js"></script>  
+
+<script type="text/javascript" defer="defer">
+//<![CDATA[
+setTimeout('fix_column_widths()', 20);
+//]]>
+</script>
+<script type="text/javascript">
+//<![CDATA[
+function openpopup(url, name, options, fullscreen) {
+    var fullurl = "https://uno.mrooms3.net" + url;
+    var windowobj = window.open(fullurl, name, options);
+    if (!windowobj) {
+        return true;
+    }
+    if (fullscreen) {
+        windowobj.moveTo(0, 0);
+        windowobj.resizeTo(screen.availWidth, screen.availHeight);
+    }
+    windowobj.focus();
+    return false;
+}
+
+function uncheckall() {
+    var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = false;
+    }
+}
+
+function checkall() {
+    var inputs = document.getElementsByTagName('input');
+    for(var i = 0; i < inputs.length; i++) {
+        inputs[i].checked = true;
+    }
+}
+
+function inserttext(text) {
+  text = ' ' + text + ' ';
+  if ( opener.document.forms['theform'].message.createTextRange && opener.document.forms['theform'].message.caretPos) {
+    var caretPos = opener.document.forms['theform'].message.caretPos;
+    caretPos.text = caretPos.text.charAt(caretPos.text.length - 1) == ' ' ? text + ' ' : text;
+  } else {
+    opener.document.forms['theform'].message.value  += text;
+  }
+  opener.document.forms['theform'].message.focus();
+}
+addonload(function() { if(el = document.getElementById('password')) el.focus(); });
+
+function getElementsByClassName(oElm, strTagName, oClassNames){
+	var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+	var arrReturnElements = new Array();
+	var arrRegExpClassNames = new Array();
+	if(typeof oClassNames == "object"){
+		for(var i=0; i<oClassNames.length; i++){
+			arrRegExpClassNames.push(new RegExp("(^|\\s)" + oClassNames[i].replace(/\-/g, "\\-") + "(\\s|$)"));
+		}
+	}
+	else{
+		arrRegExpClassNames.push(new RegExp("(^|\\s)" + oClassNames.replace(/\-/g, "\\-") + "(\\s|$)"));
+	}
+	var oElement;
+	var bMatchesAll;
+	for(var j=0; j<arrElements.length; j++){
+		oElement = arrElements[j];
+		bMatchesAll = true;
+		for(var k=0; k<arrRegExpClassNames.length; k++){
+			if(!arrRegExpClassNames[k].test(oElement.className)){
+				bMatchesAll = false;
+				break;
+			}
+		}
+		if(bMatchesAll){
+			arrReturnElements.push(oElement);
+		}
+	}
+	return (arrReturnElements)
+}
+//]]>
+</script>
+<script type="text/javascript">addonload(function() {  expressShowHide();pageThemeSetupMenu(); })</script></head>
+
+<body  class="login course-1 notloggedin dir-ltr lang-en_us_utf8" id="login-index">
+
+<div id="page">
+
+<div id="header">
+		  <div class="headermenu"><div class="logininfo">You are not logged in. (<a  href="https://uno.mrooms3.net/login/index.php">Login</a>)</div><div></div></div>
+		  <div class="bubbles"><img class="logo" src="https://uno.mrooms3.net/express/design/Moodle1/pix/logo.png" alt="logo" id="logo" /></div>
+		</div><div class="tabbar"></div><div class="navbar clearfix"><div class="breadcrumb"><h2 class="accesshide " >You are here</h2> <ul>
+<li class="first"><a  onclick="this.target='_top'" href="http://uno.mrooms3.net/">Moodle</a></li><li> <span class="accesshide " >/&nbsp;</span><span class="arrow sep">&#x25B6;</span> Login to the site</li></ul></div><div class="navbutton"><div class="langmenu"><form action="http://uno.mrooms3.net/course/jumpto.php" method="get"  id="chooselang" class="popupform"><div><label for="chooselang_jump"><span class="accesshide " >Language</span></label><select id="chooselang_jump" name="jump" onchange="self.location=document.getElementById('chooselang').jump.options[document.getElementById('chooselang').jump.selectedIndex].value;">
+   <option value="https://uno.mrooms3.net/login/index.php?lang=en_us_utf8" selected="selected">English (en_us)</option>
+   <option value="https://uno.mrooms3.net/login/index.php?lang=en_utf8">English (en)</option>
+</select><input type="hidden" name="sesskey" value="B3e9BO7a3c" /><div id="noscriptchooselang" style="display: inline;"><input type="submit" value="Go" /></div><script type="text/javascript">
+//<![CDATA[
+document.getElementById("noscriptchooselang").style.display = "none";
+//]]>
+</script></div></form></div></div></div>
+    <!-- END OF HEADER -->
+    <div id="content" class="content_express_headerstyle_header"><div class="loginbox clearfix onecolumn">
+  <div class="loginpanel">
+    <h2>Returning to this web site?</h2>
+      <div class="subcontent loginsub">
+        <div class="desc">
+          Login here using your username and password<br/>(Cookies must be enabled in your browser)<span class="helplink"><a title="Help with Cookies must be enabled in your browser (new window)" href="http://uno.mrooms3.net/help.php?module=moodle&amp;file=cookies.html&amp;forcelang="  onclick="this.target='popup'; return openpopup('/help.php?module=moodle&amp;file=cookies.html&amp;forcelang=', 'popup', 'menubar=0,location=0,scrollbars,resizable,width=500,height=400', 0);"><img class="iconhelp" alt="Help with Cookies must be enabled in your browser (new window)" src="https://uno.mrooms3.net/theme/express/pix/help.gif" /></a></span>        </div>
+                <form action="https://uno.mrooms3.net/login/index.php" method="post" id="login">
+          <div class="loginform">
+            <div class="form-label"><label for="username">Username</label></div>
+            <div class="form-input">
+              <input type="text" name="username" id="username" size="15" value="jslimmer" />
+            </div>
+            <div class="clearer"><!-- --></div>
+            <div class="form-label"><label for="password">Password</label></div>
+            <div class="form-input">
+              <input type="password" name="password" id="password" size="15" value=""  />
+              <input type="submit" value="Login" />
+              <input type="hidden" name="testcookies" value="1" />
+            </div>
+            <div class="clearer"><!-- --></div>
+          </div>
+        </form>
+      </div>
+
+
+      <div class="subcontent forgotsub">
+        <div class="desc">
+          Forgotten your username or password?        </div>
+        <form action="forgot_password.php" method="post" id="changepassword">
+          <div class="forgotform">
+            <input type="hidden" name="sesskey" value="B3e9BO7a3c" />
+            <input type="submit" value="Call the Help Desk at 504-280-4357" />
+          </div>
+        </form>
+      </div>
+     </div>
+</div>
+</div><div id="footer"><div class="clickablesr1">
+			<a href="http://clickables.moodlerooms.com/spaces/steps/manuals/joule/tags?tag=Getting+started"  target="_blank">Getting Started</a>
+			<a href="http://clickables.moodlerooms.com/spaces/steps/manuals/joule/tags?tag=Engage"  target="_blank">Participating in a course</a>
+			<a href="http://clickables.moodlerooms.com/spaces/steps/manuals/joule/tags?tag=Facilitate"  target="_blank">Facilitating a course</a>
+			<a href=" http://clickables.moodlerooms.com/spaces/steps/manuals/joule/tags?tag=Design"  target="_blank">Designing a course</a>
+		</div>
+
+    	<div class="clickablesr2">
+			<span class="participanthelp">
+				<a href="http://www.moodlerooms.com/resources/tutorials/participate/" title="Participant Help"  target="_blank">&nbsp;</a>
+			</span>
+			<span class="instructorhelp">
+				<a href="http://www.moodlerooms.com/resources/tutorials/facilitate/" title="Instructor Help"  target="_blank">&nbsp;</a>
+			</span>
+			<span class="administratorhelp">
+				<a href="http://www.moodlerooms.com/resources/tutorials/design/" title="Administrator Help" target="_blank" >&nbsp;</a>
+			</span>
+		</div><div class="copyright">
+                  &#169; Copyright 2009 Moodlerooms Inc, All Rights Reserved
+                  <br />
+		          Powered by <a href="http://www.moodlerooms.com/lms-solutions/joule/"><img src="https://uno.mrooms3.net/theme/express/pix/poweredbyjoule.png" id="powerby" alt="Powered by Joule"/></a>
+                  </div><div class="performanceinfo"><span class="timeused">0.05041 secs</span> <span class="memoryused">RAM: 2.2MB</span> <span class="memoryused">RAM peak: 2.8MB</span> <span class="included">Included 48 files</span> <span class="posixtimes">ticks: 5 user: 2 sys: 0 cuser: 0 csys: 0</span> <span class="serverload">Load average: 2.99</span> <span class="rcache">Record cache hit/miss ratio : 0/0</span> </div></div>                      
+</div>
+</body>
+</html>
