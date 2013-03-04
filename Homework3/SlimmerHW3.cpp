@@ -232,6 +232,8 @@ int circle_menu() {
 double get_user_input(string input_type) {
     /*this gets input for calculations from the user
      uses the check for filter*/
+    cout<<"Remember this program does not track or handle units of measurement!! "<<endl;
+    cout<<"Please enter units accordingly"<<endl;
     double user_input = 0;
     cout << "Please enter the "<<input_type<<" :"<< endl;
     user_input = checkEntryforchar();
