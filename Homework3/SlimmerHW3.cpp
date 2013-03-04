@@ -12,6 +12,11 @@
 
 //Listed below is the global constant used for any function;
 const double PI = 3.1415926535;
+enum Menu {CIRCLE =1 , SPHERE, RECTANGLE ,EMPTY=4, EXIT = 5 };
+enum Cir_Menu {CIRCLE_AREA =1, CIRCLE_CIRCUM,CYLINDER_VOLUME,CYLINDER_AREA};
+enum Sph_menu {SPHERE_AREA=1, SPHERE_VOLUME,CONE_VOLUME, CONE_AREA };
+enum Rec_menu {RECTANGLE_PERIMETER=1, RECTANGLE_AREA, RECTANGLE_VOLUME, SOLID_RECTANGLE_AREA};
+
 // also all variables have been declared locally
 using namespace std;
 /*below is the declarations of menu, switch, and input functions used*/
@@ -113,24 +118,20 @@ int main_menu() {
 
         switch (menu_choice) {
 
-            case 1:
+            case CIRCLE:
                 circle_menu();
                 break;
 
-            case 2:
+            case SPHERE:
                 sphere_menu();
                 break;
 
-            case 3:
+            case RECTANGLE:
                 rectangle_menu();
                 break;
 
-            case 4:
-                menu_choice = 5;
-                break;
-
-
-            case 5:
+            case EMPTY:
+            case EXIT:
                 menu_choice = 5;
 
                 break;
@@ -177,7 +178,7 @@ int circle_menu() {
         menu_choice = get_circle_menu();
         cout << endl;
         switch (menu_choice) {
-            case 1:
+            case CIRCLE_AREA:
                 //circle area
                 shape = "circle";
                 operation = "area";
@@ -187,7 +188,7 @@ int circle_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 2:
+            case CIRCLE_CIRCUM:
                 //circle circumference 
                 shape = "circle";
                 operation = "circumference";
@@ -197,7 +198,7 @@ int circle_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 3:
+            case CYLINDER_VOLUME:
                 //cylinder volume
                 shape = "cylinder";
                 operation = "volume";
@@ -208,7 +209,7 @@ int circle_menu() {
                 calculation = CylinderVolume(radius, height);
                 output(calculation, shape, operation);
                 break;
-            case 4:
+            case CYLINDER_AREA:
                 //cylinder surface area
                 shape = "cylinder";
                 operation = "surface area";
@@ -220,7 +221,7 @@ int circle_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 5:
+            case EXIT:
 
                 break;
 
@@ -233,7 +234,7 @@ double get_user_input(string input_type) {
     /*this gets input for calculations from the user
      uses the check for filter*/
     cout<<"Remember this program does not track or handle units of measurement!! "<<endl;
-    cout<<"Please enter units accordingly"<<endl;
+    cout<<"Please calculate units on your own accordingly"<<endl;
     double user_input = 0;
     cout << "Please enter the "<<input_type<<" :"<< endl;
     user_input = checkEntryforchar();
@@ -296,7 +297,7 @@ int sphere_menu() {
         menu_choice = get_sphere_menu();
         cout << endl;
         switch (menu_choice) {
-            case 1://Sphere volume function
+            case SPHERE_VOLUME://Sphere volume function
                 shape = "sphere";
                 operation = "volume";
                 input_type = "radius";
@@ -305,7 +306,7 @@ int sphere_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 2://Sphere Surface Area function
+            case SPHERE_AREA://Sphere Surface Area function
                 shape = "sphere";
                 operation = "surface area";
                 input_type = "radius";
@@ -314,7 +315,7 @@ int sphere_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 3://Volume of cone function
+            case CONE_VOLUME://Volume of cone function
                 shape = "cone";
                 operation = "volume";
                 input_type = "radius";
@@ -325,7 +326,7 @@ int sphere_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 4:// Surface Area of a cone
+            case CONE_AREA:// Surface Area of a cone
                 shape = "cone";
                 operation = "surface area";
                 input_type = "radius";
@@ -336,7 +337,7 @@ int sphere_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 5:
+            case EXIT:
 
                 break;
 
@@ -407,7 +408,7 @@ int rectangle_menu() {
         menu_choice = get_rectangle_menu();
         cout << endl;
         switch (menu_choice) {
-            case 1:
+            case RECTANGLE_PERIMETER:
                 input_type = "length";
                 length = get_user_input(input_type);
                 input_type = "width";
@@ -422,7 +423,7 @@ int rectangle_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 2:
+            case RECTANGLE_AREA:
                 input_type = "length";
                 length = get_user_input(input_type);
                 input_type = "width";
@@ -437,7 +438,7 @@ int rectangle_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 3:
+            case RECTANGLE_VOLUME:
                 input_type = "length";
                 length = get_user_input(input_type);
                 input_type = "height";
@@ -454,12 +455,13 @@ int rectangle_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 4:
+            case SOLID_RECTANGLE_AREA:
                 input_type = "length";
                 length = get_user_input(input_type);
                 input_type = "height";
                 height = get_user_input(input_type);
                 input_type = "width";
+                width = get_user_input(input_type);
                 if ((width == length) && (width == height)) {
                     shape = "cube";
                 } else {
@@ -470,7 +472,7 @@ int rectangle_menu() {
                 output(calculation, shape, operation);
                 break;
 
-            case 5:
+            case EXIT:
 
                 break;
 
@@ -509,4 +511,5 @@ void output(double calculation, string shape, string operation) {
             << " of the " << shape
             << " equals " << calculation
             << endl << endl;
+    ;
 }
