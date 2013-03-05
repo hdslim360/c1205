@@ -12,6 +12,7 @@
 
 //Listed below is the global constant used for any function;
 const double PI = 3.1415926535;
+//these below are enums used for the menu switches as labels for readability.
 enum Menu {CIRCLE =1 , SPHERE, RECTANGLE ,EMPTY=4, EXIT = 5 };
 enum Cir_Menu {CIRCLE_AREA =1, CIRCLE_CIRCUM,CYLINDER_VOLUME,CYLINDER_AREA};
 enum Sph_menu {SPHERE_AREA=1, SPHERE_VOLUME,CONE_VOLUME, CONE_AREA };
@@ -20,34 +21,34 @@ enum Rec_menu {RECTANGLE_PERIMETER=1, RECTANGLE_AREA, RECTANGLE_VOLUME, SOLID_RE
 // also all variables have been declared locally
 using namespace std;
 /*below is the declarations of menu, switch, and input functions used*/
-int get_main_menu_choice();
-int main_menu();
-int get_circle_menu();
-int circle_menu();
-int get_sphere_menu();
-int sphere_menu();
-int get_rectangle_menu();
-int rectangle_menu();
-int checkentryformenu();
-double checkEntryforchar();
-double get_user_input(string input_type);
+int get_main_menu_choice();//receives input and tests range for main menu 
+int main_menu();// this is the main menu selects submenus or exit
+int get_circle_menu();//gets and test input for circle menu
+int circle_menu();//circle submenu and calls related functions
+int get_sphere_menu();//gets and test input for sphere menu
+int sphere_menu();//sphere submenu and calls related functions
+int get_rectangle_menu();//gets and test input for rectangle menu
+int rectangle_menu();//rectangle submenu and calls related functions
+int checkentryformenu();// this function is used to filter user input for compatable entries to the menu system. 
+double checkEntryforchar();// this function is used to filter all inputs for incorrect entries.
+double get_user_input(string input_type); //this is used to receive all user data and filter for calculation
 /*below is the declaration of the functions  used 
  *for the various formulas for which the program is written.
  *the functions  are listed following main().
  */
-double CircleArea(double radius);
-double CircleCircumference(double radius);
-double CylinderVolume(double radius, double height);
-double CylinderSurfaceArea(double radius, double height);
-double SphereVolume(double radius);
-double SphereSurfaceArea(double radius);
-double ConeVolume(double radius, double height);
-double ConeSurfaceArea(double radius, double height);
-double PerimeterRectangle(double length, double height);
-double RectangleArea(double length, double height);
-double VolumeRectangularSolid(double length, double height, double width);
-double SurfaceAreaRectangularSolid(double length, double height, double width);
-void output(double calculation, string type, string operation);
+double CircleArea(double radius);//calculates circle area
+double CircleCircumference(double radius);//calculates circle circumference
+double CylinderVolume(double radius, double height);//calculates cylinder volume
+double CylinderSurfaceArea(double radius, double height);//calculates cylinder area
+double SphereVolume(double radius);//calculates sphere volume
+double SphereSurfaceArea(double radius);//calculates sphere area
+double ConeVolume(double radius, double height);//calculates cone volume
+double ConeSurfaceArea(double radius, double height);//calculates cone area
+double PerimeterRectangle(double length, double height);// calc perimeter rectangle
+double RectangleArea(double length, double height);// calc rectangle area
+double VolumeRectangularSolid(double length, double height, double width);// calc volume cube
+double SurfaceAreaRectangularSolid(double length, double height, double width);// calc surface area of rectng solid
+void output(double calculation, string type, string operation);// this is used for the output of the calculation functions
 
 int main(int argc, char *argv[]) {
     cout << "Welcome to Geometry'R'Us" << endl << endl;
